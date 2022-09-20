@@ -1,0 +1,94 @@
+.full-flexbox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: fixed; top: 58px; left: 0;
+    justify-content: center;
+    z-index: 1;
+    margin: 0 auto 0 auto;
+    align-items: flex-start;
+}
+
+.thin {
+    font-size: 11pt;
+}
+
+.tutorial-overlay { 
+    --tutorial-text: black ;
+    --tutorial-background: #BBB;
+    --tutorial-border: black;
+}
+
+.tutorial-overlay.dark-theme {
+    --tutorial-text: white;
+    --tutorial-background: #222;
+    --tutorial-border: white;
+}
+
+.tutorial-overlay {
+    position:relative;
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 5px 10px 5px 10px;
+    background: #BBB;
+    max-width: 400px; 
+    margin: 0px 3px;
+    color: var(--tutorial-text);
+    background: var(--tutorial-background);
+    border-color: var(--tutorial-border);
+}
+
+.close-button {
+    text-align: right;
+    width:100%;
+}
+
+.cross-mark {
+    font-size: 15pt;
+    padding: 0px 5px 0px 0px;
+    cursor:pointer;
+}
+
+.key {
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid;
+    border-radius:3px;
+    padding: 1px 3px 1px 3px;
+}
+
+.tutorial-game-row {
+    display: grid;
+    grid-template-columns: repeat(6, 40px);
+    gap: 5px;
+    height: 40px;
+    max-width: 267px;
+    margin:0px auto 5px auto;
+    justify-items: start;
+    align-items: start;
+}
+
+.tutorial-letter-cell { 
+    font-size: 20pt; 
+    width:40px;
+    max-width:40px;
+    padding-bottom:100%;
+    grid-row: 1;
+    font-weight:bold;
+    position:relative;
+    text-align:center;
+    border-style:solid;
+    border-width:1px; 
+}
+
+.tutorial-letter {
+    position:absolute;
+    top: 4px;
+    width:100%;
+}
+
+.tutorial-space-container {
+    color: #999;
+    font-size:16pt;
+    top: 7px;
+    width:100%;
+}

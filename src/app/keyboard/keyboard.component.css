@@ -1,0 +1,84 @@
+
+.keyboard-holder {
+    margin: 0px 0px 3px 0px;
+    width: 100%;
+    max-width: 564px;
+}
+
+
+.keyboard-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    margin: 0 auto 0 auto;
+    justify-content:center;
+    width:100%;
+}
+
+.key-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    font-family: Ubuntu;
+    font-size: 16pt;
+    cursor:pointer;
+    border:1px solid black;
+    border-radius: 5px;
+    margin: 0px 3px 4px 3px;
+    height:35px;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    user-select:none;
+}
+
+.space-bar {
+    font-variant: small-caps;
+    font-size: 14pt;
+    max-width: 200px;
+    text-align:center;
+    flex: 3.5;
+}
+
+.backspace-key {
+    padding: 0;
+    vertical-align:bottom;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:16pt;
+    vertical-align:bottom;
+    flex: 1.5;
+}
+
+.enter-key {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 18pt;
+    max-width: 80px;
+    vertical-align:bottom;
+    flex: 1.25;
+}
+
+.blank-button {
+/*    max-width: 50px;*/
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    background-color: transparent;
+    border: 1px solid transparent;
+    margin: 0px 5px 3px 0px;
+    height:35px;
+    justify-content: center;
+    align-items: center;
+}
+
+.half-width {
+    max-width: 25px;
+    flex: 0.5;
+}
+
+.full-width {
+    max-width: 50px;
+    flex:1;
+}

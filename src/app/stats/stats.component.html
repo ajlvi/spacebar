@@ -1,0 +1,53 @@
+<div class="full-flexbox">
+    <div class="stats-overlay" #statsOverlay id="statsBox">
+        <div class="close-button"><span class="cross-mark" (click)="onClose()">&#x2715;</span></div>
+        <p class="stat-description-header" style="margin-top:0">Cumulative results</p>
+        <div class="game-streak-stats">
+            <div class="stat-block total">
+                <span class="stat-header">total</span>
+                <br>
+                <span class="stat-number">{{cumulativeStats[0]}}</span>
+            </div>
+            <div class="stat-block pct">
+                <span class="stat-header">percent</span>
+                <br>
+                <span class="stat-number">{{cumulativeStats[6]}}</span>
+            </div>
+            <div class="stat-block streak">
+                <span class="stat-header">streak</span>
+                <br>
+                <span class="stat-number">{{cumulativeStats[2]}}</span>
+            </div>
+            <div class="stat-block max">
+                <span class="stat-header">longest</span>
+                <br>
+                <span class="stat-number">{{cumulativeStats[3]}}</span>
+            </div>
+            <div class="stat-block reds">
+                <span class="stat-header">reds</span>
+                <br>
+                <span class="stat-number">{{cumulativeStats[4]}}</span>
+            </div>
+        </div>
+        <p class="stat-description-header">Guess distribution</p>
+        <div class="guess-distribution-wrapper">
+            <div class="guess-row" *ngFor="let guess of guessHisto; let idx = index">
+                <span class="guess-number">{{idx+1}}</span>
+                <span class="guess-bar"
+                    [ngStyle]="{'width': determineWidth(idx),
+                                 'background': idx === activeRow ? activeBarBack : guessBarBack}
+                              ">
+                </span>
+                <span class="guess-total">{{ guessHisto[idx] }} </span>
+            </div>
+        </div>
+        <div class="cookie-button-holder" *ngIf="!acceptedCookie">
+            <button class="share-button" (click)="onAcceptCookie()" id="AcceptCookieButton">Click to accept stats cookie</button>
+        </div>
+        <div class="share-button-holder" *ngIf="gameFinished">
+            <button class="share-button" (click)="onShare()">Share results</button>
+        </div>
+        <p class="countdown-holder" *ngIf="gameFinished">Next game in 
+            {{timeToNextGame}}</p>
+    </div>
+</div>

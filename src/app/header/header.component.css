@@ -1,0 +1,60 @@
+.head-container {
+    --bot-border: black;
+}
+
+.head-container.dark-theme {
+    --bot-border: white;
+}
+
+.head-container {
+    width: 100%;
+    text-align: center;
+    height:32px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    border-color: var(--bot-border);
+}
+
+.head-content {
+    max-width: 600px;
+    height:100%;
+    margin: auto;
+}
+
+.logo {
+    width:100px;
+    float:left;
+    text-align: left;
+    font-size:22px;
+    margin-left: 5px;
+}
+
+.nav-buttons { 
+    width: 200px;
+    float:right;
+    text-align: right;
+}
+
+.dark-selector, .light-selector, .tutorial-selector {
+    display:inline-block; 
+    margin: 0px 5px 0px 5px; 
+    cursor: pointer;
+    width: 30px;
+    line-height:30px;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.circled-option {
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.game-number {
+    font-size: 12pt;
+}

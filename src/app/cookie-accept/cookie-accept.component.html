@@ -1,0 +1,11 @@
+<div class="cookie-accept-bar" [ngStyle]="{'background': backgroundColor}">
+    <div class="cookie-accept-content">
+        <span class="cookie-explanation">
+            This site would like to store a cookie, solely for keeping track of stats. Is that okay?
+        </span>
+        <span class="button-holder">
+            <button class="accept" (click)="acceptsCookies(true)" id="CookieAcceptButton">OK, go ahead</button>
+            <button class="decline" (click)="acceptsCookies(false)" id="CookieRejectButton">How dare you</button>
+        </span>
+    </div>
+</div>

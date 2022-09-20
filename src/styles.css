@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+body { 
+    --text-color: black ;
+    --bkg-color: white;
+}
+
+body.dark-theme {
+    --text-color: white;
+    --bkg-color: #222;
+}
+
+body {
+    font-family : Ubuntu; 
+    text-align: center;
+    color: var(--text-color);
+    background: var(--bkg-color);
+    margin: 0 0 0 0;
+    height: 100%;
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}

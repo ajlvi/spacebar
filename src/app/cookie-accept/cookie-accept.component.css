@@ -1,0 +1,42 @@
+.cookie-accept-bar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    border-width: 1px 0px 0px 0px;
+    border-style: solid;
+    padding: 10px 0px 10px 0px;
+}
+
+.cookie-accept-content {
+    width: 100%; 
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    margin: 0px auto 0px auto;
+}
+
+.cookie-explanation {
+    display: flex;
+    max-width: 650px;
+    margin-right: 10px;
+    flex-shrink: 1;
+    flex-grow: 0;
+}
+
+.button-holder {
+    display: flex;
+    width:240px;
+    flex-shrink: 0;
+}
+
+.accept, .decline {
+    display: flex;
+    cursor: pointer;
+    font-size: 12pt;
+    border: 1px solid;
+    border-radius: 4px;
+    margin: 0px 3px;
+    padding: 4px 6px;
+ }

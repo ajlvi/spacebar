@@ -1,0 +1,32 @@
+<div class="head-container" #headcontainer>
+<div class="head-content">
+
+    <div class="logo">
+        <sup>5</sup><sub>6</sub>
+        <!-- <span class="game-number">game #0</span> -->
+        <span style="font-size:7pt; padding-left:5px">{{viewportWidth}} &times; {{viewportHeight}}</span>
+    </div>
+
+    <div class="nav-buttons">
+        <div class="light-selector circled-option"
+            (click)="toggleColor('light')"
+            [ngStyle]="{'border-color': determineBorderColor(),
+                        'background': determineBackgroundColor('light')}">&#x2600;</div>
+        <div class="dark-selector circled-option" 
+            (click)="toggleColor('dark')"
+            [ngStyle]="{'border-color': determineBorderColor(),
+                        'background': determineBackgroundColor('dark')}">&#x263D;
+        </div>
+        <div class="tutorial-selector circled-option"
+            id="StatsOpener"
+            (click)="openStats()"
+            [ngStyle]="{'border-color': determineBorderColor(),
+                        'background': determineBackgroundColor('stats')}">📈</div>                        
+        <div class="tutorial-selector circled-option"
+            id="TutorialOpener"
+            (click)="openTutorial()"
+            [ngStyle]="{'border-color': determineBorderColor(),
+                        'background': determineBackgroundColor('help')}">?</div>
+    </div>
+</div>
+</div>

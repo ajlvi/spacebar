@@ -1,0 +1,29 @@
+<div class="full-flexbox">
+    <div class="tutorial-overlay" #tutorialOverlay id="tutorialBox">
+        <div class="close-button"><span class="cross-mark" (click)="onClose()">&#x2715;</span></div>
+        <div class="content">
+            <p class="tutorial-content">In SpaceBar, you use five-letter words to gather information about a secret six-letter word.</p>
+            <p class="tutorial-content">Your five-letter guesses will have a space in them. You can position that space wherever you'd like.. Hit <span class="key" [ngStyle]="{'border-color':backgroundHex[7]}">Enter</span> or press the <span class="key" [ngStyle]="{'border-color':backgroundHex[7]}">&#9166;</span> button to register your guess.</p>
+            <p class="tutorial-content">When you think you have the secret word figured out, guess it. But beware&mdash;an incorrect six-letter guess gives no information except that it was wrong!</p>
+            <p class="tutorial-content">Example output:</p>
+            <div class="tutorial-game-row">
+                <div class="tutorial-letter-cell" [ngStyle]="{'background': backgroundHex[0], 'border-color': backgroundHex[7]}"><div class="tutorial-letter">S</div></div>
+                <div class="tutorial-letter-cell" [ngStyle]="{'background': backgroundHex[1], 'border-color': backgroundHex[7]}"><div class="tutorial-letter">P</div></div>
+                <div class="tutorial-letter-cell" [ngStyle]="{'background': backgroundHex[2], 'border-color': backgroundHex[7]}"><div class="tutorial-letter tutorial-space-container">&mdash;</div></div>
+                <div class="tutorial-letter-cell" [ngStyle]="{'background': backgroundHex[3], 'border-color': backgroundHex[7]}"><div class="tutorial-letter">A</div></div>
+                <div class="tutorial-letter-cell" [ngStyle]="{'background': backgroundHex[4], 'border-color': backgroundHex[7]}"><div class="tutorial-letter">R</div></div>
+                <div class="tutorial-letter-cell" [ngStyle]="{'background': backgroundHex[5], 'border-color': backgroundHex[7]}"><div class="tutorial-letter">K</div></div>
+            </div>
+            <p class="tutorial-content">This means the letter S is in the secret word, though it is not first; the fourth letter of the secret word is A; and the letters K, P, and R are not in the secret word.</p>
+            <div class="tutorial-game-row">
+                <div class="tutorial-letter-cell" [ngStyle]="{'background': backgroundHex[6], 'border-color': backgroundHex[7]}"><div class="tutorial-letter">R</div></div>
+                <div class="tutorial-letter-cell" [ngStyle]="{'background': backgroundHex[6], 'border-color': backgroundHex[7]}"><div class="tutorial-letter">I</div></div>
+                <div class="tutorial-letter-cell" [ngStyle]="{'background': backgroundHex[6], 'border-color': backgroundHex[7]}"><div class="tutorial-letter">P</div></div>
+                <div class="tutorial-letter-cell" [ngStyle]="{'background': backgroundHex[6], 'border-color': backgroundHex[7]}"><div class="tutorial-letter">P</div></div>
+                <div class="tutorial-letter-cell" [ngStyle]="{'background': backgroundHex[6], 'border-color': backgroundHex[7]}"><div class="tutorial-letter">L</div></div>
+                <div class="tutorial-letter-cell" [ngStyle]="{'background': backgroundHex[6], 'border-color': backgroundHex[7]}"><div class="tutorial-letter">E</div></div>
+            </div>
+            <p class="tutorial-content">This only tells you the secret word is not RIPPLE.</p>
+        </div>
+    </div>
+</div>

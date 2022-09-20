@@ -1,0 +1,50 @@
+<div class="keyboard-holder">
+    <div class="keyboard-row">
+        <span class="key-button" id="q" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['q']}">Q</span>
+        <span class="key-button" id="w" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['w']}">W</span>
+        <span class="key-button" id="e" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['e']}">E</span>
+        <span class="key-button" id="r" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['r']}">R</span>
+        <span class="key-button" id="t" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['t']}">T</span>
+        <span class="key-button" id="y" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['y']}">Y</span>
+        <span class="key-button" id="u" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['u']}">U</span>
+        <span class="key-button" id="i" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['i']}">I</span>
+        <span class="key-button" id="o" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['o']}">O</span>
+        <span class="key-button" id="p" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['p']}">P</span>
+    </div>
+
+    <div class="keyboard-row">
+        <span class="half-width blank-button"></span>
+        <span class="key-button" id="a" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['a']}">A</span>
+        <span class="key-button" id="s" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['s']}">S</span>
+        <span class="key-button" id="d" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['d']}">D</span>
+        <span class="key-button" id="f" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['f']}">F</span>
+        <span class="key-button" id="g" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['g']}">G</span>
+        <span class="key-button" id="h" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['h']}">H</span>
+        <span class="key-button" id="j" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['j']}">J</span>
+        <span class="key-button" id="k" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['k']}">K</span>
+        <span class="key-button" id="l" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['l']}">L</span>
+        <span class="half-width blank-button"></span>
+    </div>
+
+    <div class="keyboard-row">
+        <span class="full-width blank-button"></span>
+        <span class="key-button" id="z" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['z']}">Z</span>
+        <span class="key-button" id="x" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['x']}">X</span>
+        <span class="key-button" id="c" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['c']}">C</span>
+        <span class="key-button" id="v" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['v']}">V</span>
+        <span class="key-button" id="b" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['b']}">B</span>
+        <span class="key-button" id="n" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['n']}">N</span>
+        <span class="key-button" id="m" (click)="onKeyboard($event)" [ngStyle]="{'background': backgroundHexCodes['m']}">M</span>
+        <span class="key-button backspace-key" [ngStyle]="{'background':specialButtonBackground()}" id="Backspace" (click)="onKeyboard($event)">&#x232b;</span>
+        <span class="half-width blank-button"></span>
+    </div>
+
+    <div class="keyboard-row">
+        <span class="half-width blank-button"></span>
+        <span class="full-width blank-button"></span>
+        <span class="key-button space-bar" [ngStyle]="{'background':specialButtonBackground()}"  id="Space" (click)="onKeyboard($event)" #spacebar>spacebar</span>
+        <span class="key-button enter-key" [ngStyle]="{'background':specialButtonBackground()}"  id="Enter" (click)="onKeyboard($event)">&#9166;</span>
+        <span class="full-width blank-button"></span>
+        <span class="half-width blank-button"></span>
+    </div>
+</div>

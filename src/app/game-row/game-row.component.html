@@ -1,0 +1,17 @@
+ <!-- <p>I am game-row {{row}}. <span *ngIf="amActive">This row is active.</span> {{ letters[3] }}</p>  -->
+<div class="game-row">
+    <div
+      class="letter-cell" 
+      *ngFor="let letter of letters;let i=index" 
+      [ngStyle]="{
+        'background': backgrounds[i],
+        'border-color': borderColor(),
+        'height': boxSide,
+        'width': boxSide
+    }">
+        <div class="letter" *ngIf="letters[i] !== ' '; else spacebox">{{letters[i]}}</div>
+        <ng-template #spacebox>
+            <div class="letter space-container">&mdash;</div>
+        </ng-template>
+    </div>
+</div>
