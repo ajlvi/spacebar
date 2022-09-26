@@ -1,5 +1,5 @@
 <app-tutorial *ngIf="!seen_tutorial" (doneViewing)="onCompletedTutorial()"></app-tutorial>
-<app-stats *ngIf="display_stats" (doneViewing)="onCloseStats()"></app-stats>
+<app-stats *ngIf="display_stats" (doneViewing)="onCloseStats()" (copiedResults)="onCopiedResults()"></app-stats>
 
 <app-header (overlay)="handleOverlay($event)"></app-header>
 

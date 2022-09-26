@@ -73,6 +73,14 @@ export class GameRowComponent implements OnInit, OnDestroy {
     )
   }
 
+  determineActive(box: number): boolean {
+    let ind = 0;
+    while ((this.letters[ind] !== '') && (this.letters[ind] !== undefined)) {
+      ind++;
+    }
+    return (ind === box && this.amActive)
+  }
+
   updateColors() {
     for (let i=0; i< this.colors.length; i++) {
       this.backgrounds[i] = this.palette[this.colors[i]];

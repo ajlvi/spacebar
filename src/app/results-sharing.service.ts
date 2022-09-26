@@ -26,10 +26,11 @@ export class ResultsSharingService {
     }
 
     copyResultsToClipboard(guesses, colors:string[][]) {
+        let guessStr: string = '';
         //we expect colors to be a list of arrays that are six long.
-        if (guesses >= 8) {let guesses = "X";}
-        else {guesses = guesses+1;}
-        let outputString = "5pace6ar #" + (this.dayNum-19251) + " " + guesses + "/8"
+        if (guesses >= 7) {guessStr = "X";}
+        else {guessStr = (guesses+1).toString();}
+        let outputString = "5pace6ar #" + (this.dayNum-19255) + " " + guessStr + "/7"
         for (let row=0; row < colors.length; row++) {
             outputString = outputString + "\n";
             for (let char=0; char<colors[row].length; char++) {

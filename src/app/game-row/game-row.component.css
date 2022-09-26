@@ -27,3 +27,7 @@
     color: #d0d0d0;
     font-size:18pt;
 }
+
+.wide-border {
+    border-width:2px;
+}

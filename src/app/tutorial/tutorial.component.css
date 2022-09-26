@@ -10,8 +10,13 @@
 }
 
 .thin {
-    font-size: 11pt;
+    font-size: 10.5pt;
 }
+
+.thinner {
+    font-size: 10pt;
+}
+
 
 .tutorial-overlay { 
     --tutorial-text: black ;

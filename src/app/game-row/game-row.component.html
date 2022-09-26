@@ -8,7 +8,8 @@
         'border-color': borderColor(),
         'height': boxSide,
         'width': boxSide
-    }">
+    }" W
+      [ngClass]="{'wide-border': determineActive(i)}">
         <div class="letter" *ngIf="letters[i] !== ' '; else spacebox">{{letters[i]}}</div>
         <ng-template #spacebox>
             <div class="letter space-container">&mdash;</div>

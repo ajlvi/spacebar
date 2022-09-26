@@ -2,6 +2,7 @@ import { AfterContentInit, Component, ElementRef, HostListener, OnInit, ViewChil
 import { ColorService } from './color-defintion.service';
 import { GameService } from './game.service';
 import { GridService } from './grid-service';
+import { ResponseData } from './response.model';
 import { ResultsSharingService } from './results-sharing.service';
 import { SecretIndexService } from './secret-index.service';
 import { WritingService } from './writing.service';
@@ -28,7 +29,7 @@ export class AppComponent implements OnInit {
   decidedOnCookies = false;
   displayMessage: string = '';
   allowsCookies: boolean
-  rows = [0,1,2,3,4,5,6,7];
+  rows = [0,1,2,3,4,5,6];
   keyboardWidth: string;
   
   constructor(
@@ -63,6 +64,16 @@ export class AppComponent implements OnInit {
             this.seen_tutorial=true; this.display_stats = true;
           }, 1500 );
         }
+      }
+    )
+    this.gameService.responseSubject.subscribe(
+      (response: ResponseData) =>  {
+        if (!response.valid) { this.showMessage("That's not in my dictionary.", 1500)}
+      }
+    )
+    this.gameService.messageSubject.subscribe(
+      (message: string) => {
+        this.showMessage(message, 3000);
       }
     )
   }
@@ -107,6 +118,10 @@ export class AppComponent implements OnInit {
   cookieDecision(decision: boolean) {
     this.decidedOnCookies = true;
     if (decision) { this.gameService.cookieNowAccepted(); }
+  }
+
+  onCopiedResults() {
+    this.showMessage("Results copied to clipboard", 2000);
   }
 
   showMessage(msg: string, timeInMs: number) {

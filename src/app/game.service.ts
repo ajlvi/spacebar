@@ -27,6 +27,8 @@ export class GameService {
     activeSubject = new Subject<GuessData>;
     responseSubject = new Subject<ResponseData>;
     keyboardColorSubject = new Subject<BackgroundData>;
+    messageSubject = new Subject<string>;
+    firstRowSixGuardRail = false;
 
     secretWordNumber(): number {
         return 0
@@ -61,12 +63,22 @@ export class GameService {
         this.secretWord = targets[secret_index]
         //this code needs to be run after the secretmaker has a day number.
         //we shouldn't have run initialize before that's the case.
-        let cookieDate = this.writingService.getLastGameDate();
-        if ( cookieDate == this.secretMaker.getDayNum() ) {
+        let cookieDate = this.writingService.getDayNo();
+        if ( cookieDate === this.secretMaker.getDayNum() ) {
             this.guessList = this.writingService.getGuessList()
             this.fillBoardFromGuessList();
         }
         else { this.writingService.clearGameFinished(); }
+    }
+
+    cookieNowAccepted() {
+        this.writingService.allowCookies();
+        this.writingService.writeDayNo();
+        this.writingService.setGuessList(this.guessList);
+        // if the game is over, we need to also write stats for the first time.
+        if (this.gameFinished) {
+            this.writingService.setDistribution(this.currentGuess)
+        }
     }
 
     emitWord() {
@@ -96,19 +108,11 @@ export class GameService {
 
     getAllGuesses() { return this.guessList; }
 
-    cookieNowAccepted() {
-        this.writingService.allowCookies();
-        this.writingService.setGuessList(this.guessList);
-        if (this.gameFinished) {
-            this.writingService.setDistribution(this.currentGuess)
-        }
-    }
-
     goToNextWord() {
         this.currentGuess++;
         this.activeWord = [];
         /* this if block handles when the game is lost */
-        if (this.currentGuess >= 8) { 
+        if (this.currentGuess >= 7) { 
             this.gameFinished = true; 
             this.writingService.setDistribution(8);
         }
@@ -119,7 +123,7 @@ export class GameService {
 
     registerFiveGuess() {
         //first, store the current guess (eventually goes into cookie)
-        if (this.activeWord.length == 5) {this.activeWord.push(" ")}
+        if (this.activeWord.length == 5) {this.handleCharacter(" ")}
         const word = this.activeWord.reduce( (a, b) => a+b );
         this.guessList[this.currentGuess] = word;
         //we now get the colors.
@@ -254,7 +258,11 @@ export class GameService {
             // Is it a legal six? If so we can progress as well.
             else if (this.activeWord.length == 6 &&
                 this.activeWord.filter( x => x == " ").length == 0) {
-                    if (this.isGuessLegalSix()) {
+                    if (this.currentGuess === 0 && !this.firstRowSixGuardRail) {
+                        this.messageSubject.next(`A six-letter word first? Press Enter again to confirm.`)
+                        this.firstRowSixGuardRail = true;
+                    }
+                    else if (this.isGuessLegalSix()) {
                         this.registerSixGuess();
                     }
                     else {
@@ -271,6 +279,7 @@ export class GameService {
     }
 
     fillBoardFromGuessList() {
+        this.firstRowSixGuardRail = true;
         for(let word=0; word < this.guessList.length; word++) {
             for(let ch=0; ch< this.guessList[word].length; ch++) {
                 this.handleCharacter(this.guessList[word][ch])

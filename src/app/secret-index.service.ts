@@ -100,10 +100,10 @@ export class SecretIndexService {
       }
     }
 
-  private p = 3307 //this is the length of the target_six list.
+  private p = 3061 //this is the length of the target_six list.
 
   generateSecretIndex(): number {
-      return this.expmod(this.dayNum % this.p, 5, this.p)
+      return this.expmod(this.dayNum % this.p, 7, this.p)
     }
 
   getDayNum(): number { return this.dayNum; }

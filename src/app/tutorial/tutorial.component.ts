@@ -29,7 +29,10 @@ export class TutorialComponent implements OnInit, OnDestroy {
         this.updateColors()
       }
     )
-    if (this.tutorialBox.nativeElement.clientWidth <= 370) {
+    if (this.tutorialBox.nativeElement.clientWidth <= 340) {
+      this.tutorialBox.nativeElement.classList.add("thinner");
+    }
+    else if (this.tutorialBox.nativeElement.clientWidth <= 400) {
       this.tutorialBox.nativeElement.classList.add("thin");
     }
   }

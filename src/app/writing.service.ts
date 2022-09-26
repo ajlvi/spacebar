@@ -31,7 +31,6 @@ export class WritingService {
     initialize(netDayNo: number) {
         this.expiry = new Date( new Date().getTime() + 365*24*60*60*1000) //local time here OK
         this.initDayNo = netDayNo;
-        this.setDayNo(this.initDayNo); //mark that we're playing this game now
         this.distribution = this.getDistribution();
         this.totals = this.getTotals();
     }
@@ -39,8 +38,10 @@ export class WritingService {
     areCookiesAllowed() { return this.allowsCookies }
 
     allowCookies() { 
-        this.allowsCookies = true;
+        this.allowsCookies = true; 
     }
+
+    writeDayNo() { this.setDayNo(this.initDayNo); }
 
     setTotals(wonToday: boolean) {
         if (this.allowsCookies) {
@@ -78,9 +79,9 @@ export class WritingService {
 
     setDistribution(guessesToday: number) {
         if (this.allowsCookies) {
-            this.setTotals(guessesToday <= 7);
+            this.setTotals(guessesToday <= 6);
             if (!this.checkGameFinished()) {
-                if (guessesToday <= 7) { this.distribution[guessesToday]++; }
+                if (guessesToday <= 6) { this.distribution[guessesToday]++; }
                 this.cookieService.put("distribution", this.distribution.toString(), {sameSite: "strict", expires: this.expiry}); 
                 this.setGameFinished()
             }
@@ -88,10 +89,10 @@ export class WritingService {
     }
 
     getDistribution(): number[] {
-        const cookieDistribution = this.cookieService.get("distribution")
-        if ( cookieDistribution === undefined ) { return new Array(8).fill(0) }
+        const cookieDistribution = this.cookieService.get("distribution");
+        if ( cookieDistribution === undefined ) { return new Array(7).fill(0) }
         else {
-            let seenDistribution = JSON.parse("[" + cookieDistribution + "]");
+            let seenDistribution = JSON.parse("[" + cookieDistribution + "]").slice(0, 7);
             return seenDistribution;
         }
     }
@@ -111,6 +112,7 @@ export class WritingService {
     setGuessList(guesses: string[]) {
         if (this.allowsCookies) {
             this.cookieService.put("guesses", guesses.toString(), {sameSite: "strict", expires: this.expiry}); 
+            this.setDayNo(this.initDayNo); //mark that we're playing this game now
         }
     }
 
@@ -132,7 +134,7 @@ export class WritingService {
         }
     }
 
-    getDayNo() {
+    getDayNo(): number {
         const cookieDayNo = this.cookieService.get("dayno")
         if (cookieDayNo === undefined) { return -1 }
         else { return parseInt(cookieDayNo) }

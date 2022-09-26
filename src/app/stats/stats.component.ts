@@ -12,6 +12,7 @@ import { WritingService } from '../writing.service';
 })
 export class StatsComponent implements OnInit, OnDestroy {
   @Output() doneViewing = new EventEmitter<boolean>();
+  @Output() copiedResults = new EventEmitter<boolean>();
   @ViewChild('statsOverlay', {static:true}) statsBox: ElementRef;
 
   palette: ColorDict;
@@ -105,6 +106,7 @@ export class StatsComponent implements OnInit, OnDestroy {
 
   onShare() {
     this.gameService.copyResultsToClipboard();
+    this.copiedResults.emit(true);
   }
 
   onAcceptCookie() {
